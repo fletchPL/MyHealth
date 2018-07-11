@@ -77,7 +77,6 @@ function ($scope, $stateParams) {
 function ($scope, $stateParams) {
 
     $scope.saveToLocalStorage = function(obj){
-      console.log('This is test object',obj);
       var person = {
        params : {
          'callback' : 'JSON_CALLBACK',
@@ -92,7 +91,6 @@ function ($scope, $stateParams) {
          'phone' : obj.phone
        },
      };
-     console.log('This is object : ', person);
     }
 
 }])
