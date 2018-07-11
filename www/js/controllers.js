@@ -76,6 +76,24 @@ function ($scope, $stateParams) {
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $stateParams) {
 
+    $scope.saveToLocalStorage = function(obj){
+      console.log('This is test object',obj);
+      var person = {
+       params : {
+         'callback' : 'JSON_CALLBACK',
+         'name' : obj.name,
+         'surname' : obj.surname,
+         'age' : obj.age,
+         'weight' : obj.weight,
+         'city' : obj.city,
+         'street': obj.street,
+         'flat': obj.flat,
+         'zipCode': obj.zipCode,
+         'phone' : obj.phone
+       },
+     };
+     console.log('This is object : ', person);
+    }
 
 }])
 

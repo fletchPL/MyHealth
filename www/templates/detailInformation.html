@@ -1,46 +1,48 @@
+<div ng-controller="detailInformationCtrl">
+<form name="personalData">
+  <div>{{person}}</div>
 <ion-view title="Detail Information" hide-nav-bar="true" id="page17">
   <ion-content padding="true" class="manual-ios-statusbar-padding">
     <div class="spacer" style="width: 300px; height: 32px;"></div>
-    <div ng-controller="detailInformationCtrl">
     <ion-list id="detailInformation-list10" class="manual-list-fullwidth">
       <ion-item class="item-avatar" id="detailInformation-list-item25">
         <img src="img/ab2cATrBSDOH8QDTSk2w_photo.jpg">
       </ion-item>
       <label class="item item-input" id="detailInformation-input14">
         <span class="input-label">Name</span>
-        <input type="text" placeholder="Name">
+        <input name="name" ng-model="person.name" type="text" placeholder="Name">
       </label>
       <label class="item item-input" id="detailInformation-input15">
         <span class="input-label">Surname</span>
-        <input type="text" placeholder="Surname">
+        <input name="surname" ng-model="person.surname" type="text" placeholder="Surname">
       </label>
       <label class="item item-input" id="detailInformation-input16">
         <span class="input-label">Age</span>
-        <input type="text" placeholder="Age">
+        <input name="age" ng-model="person.age" type="text" placeholder="Age">
       </label>
       <label class="item item-input" id="detailInformation-input17">
         <span class="input-label">Weight</span>
-        <input type="number" placeholder="Weight">
+        <input name="weight" ng-model="person.number" type="number" placeholder="Weight">
       </label>
       <label class="item item-input" id="detailInformation-input18">
         <span class="input-label">City</span>
-        <input type="text" placeholder="City">
+        <input name="city" ng-model="person.city" type="text" placeholder="City">
       </label>
       <label class="item item-input" id="detailInformation-input19">
         <span class="input-label">Street</span>
-        <input type="text" placeholder="Street">
-      </label>
-      <label class="item item-input" id="detailInformation-input21">
-        <span class="input-label">Zip Code</span>
-        <input type="text" placeholder="Zip Code">
-      </label>
-      <label class="item item-input" id="detailInformation-input22">
-        <span class="input-label">Phone</span>
-        <input type="tel" placeholder="Phone">
+        <input name="street" ng-model="person.street" type="text" placeholder="Street">
       </label>
       <label class="item item-input" id="detailInformation-input20">
         <span class="input-label">Flat</span>
-        <input type="text" placeholder="Flat number">
+        <input name="flat" ng-model="person.flat" type="text" placeholder="Flat number">
+      </label>
+      <label class="item item-input" id="detailInformation-input21">
+        <span class="input-label">Zip Code</span>
+        <input name="zipCode" ng-model="person.zipCode" type="text" placeholder="Zip Code">
+      </label>
+      <label class="item item-input" id="detailInformation-input22">
+        <span class="input-label">Phone</span>
+        <input name="phone" ng-model="person.phone" type="tel" placeholder="Phone">
       </label>
       <label class="item item-select" id="detailInformation-select2">
         <span class="input-label">Who are you</span>
@@ -50,7 +52,8 @@
         </select>
       </label>
     </ion-list>
-    <a ng-click="" ui-sref="myProfile()" id="detailInformation-button11" class="button button-assertive button-block">Save</a>
-  </div>
+    <a ng-click="saveToLocalStorage(person)" ui-sref="myProfile()" id="detailInformation-button11" class="button button-assertive button-block">Save</a>
   </ion-content>
 </ion-view>
+</form>
+</div>
