@@ -20,9 +20,22 @@ function ($scope, $stateParams) {
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $stateParams) {
+    var personJsonIn  = localStorage.getItem('Person');
+    var personJsonOut = (personJsonIn !== null) ? JSON.parse(personJsonIn) : console.log('Error loading JSON');
 
-    $scope.chooseBlood = function(){
+    $scope.itemList   = [];
+    $scope.bloodsType = [{type:"A Rh+"},{type:"A Rh-"},{type:"B Rh+"},{type:"B Rh-"},
+                         {type:"AB Rh+"},{type:"AB Rh-"},{type:"0 Rh+"},{type:"0 Rh-"}];
+    $scope.chooseBlood = function(bloodTypeSelected){
+      if(bloodTypeSelected == null){
+        //error
 
+      }else{
+        var userBlood = bloodTypeSelected.type;
+        personJsonOut.type = userBlood;
+        console.log(personJsonOut);
+        localStorage.setItem('Person',JSON.stringify(personJsonOut));
+      }
     }
 
 }])
@@ -83,7 +96,7 @@ function ($scope, $stateParams) {
       if(obj.name == undefined && obj.surname == undefined){
 
       }else {
-        
+
         var person = {
            'callback' : 'JSON_CALLBACK',
            'name' : obj.name,

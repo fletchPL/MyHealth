@@ -12,25 +12,19 @@
         <p>Last Name</p>
       </ion-item>
     </ion-list>
+    <div ng-controller="myProfileCtrl">
     <form id="myProfile-form5" class="list">
       <label class="item item-select" id="myProfile-select1">
         <span class="input-label">Blood</span>
-        <select>
-          <option>A Rh+</option>
-          <option>A Rh-</option>
-          <option>B Rh+</option>
-          <option>B Rh-</option>
-          <option>AB Rh+</option>
-          <option>AB Rh-</option>
-          <option>B Rh +</option>
-          <option>B Rh-</option>
-          <option>0 Rh+</option>
-          <option>0 Rh-</option>
+        <select ng-model="bloodTypeSelected" ng-change="chooseBlood(bloodTypeSelected)"
+        data-ng-options="bloodType as bloodType.type for bloodType in bloodsType">
+          <option value="">Select Blood Type</option>
         </select>
       </label>
     </form>
+  </div>
     <div>
-      <img src="img/psUJeXfSLe3FCqaNlfWr_bloodpng.png" style="display: block; width: 50%; height: auto; margin-left: auto; margin-right: auto;">
+      <img src="img/psUJeXfSLe3FCqaNlfWr_bloodpng.png" style="display: block; width: 50%; height: auto; margin-left: auto; margin-right: auto; margin-top: 100px;">
     </div>
   </ion-content>
 </ion-view>
