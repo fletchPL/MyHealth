@@ -18,7 +18,7 @@
       </label>
       <label class="item item-input" id="detailInformation-input16">
         <span class="input-label">Age</span>
-        <input name="age" ng-model="person.age" type="text" placeholder="Age">
+        <input name="age" ng-model="person.age" type="text" placeholder="Age"  ng-minlength="2" ng-maxlength="3">
       </label>
       <label class="item item-input" id="detailInformation-input17">
         <span class="input-label">Weight</span>
@@ -42,7 +42,7 @@
       </label>
       <label class="item item-input" id="detailInformation-input22">
         <span class="input-label">Phone</span>
-        <input name="phone" ng-model="person.phone" type="tel" placeholder="Phone">
+        <input name="phone" ng-model="person.phone" type="tel" placeholder="Phone" ng-pattern="/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/">
       </label>
       <label class="item item-select" id="detailInformation-select2">
         <span class="input-label">Who are you</span>

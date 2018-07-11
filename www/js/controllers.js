@@ -21,6 +21,9 @@ function ($scope, $stateParams) {
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $stateParams) {
 
+    $scope.chooseBlood = function(){
+
+    }
 
 }])
 
@@ -77,20 +80,25 @@ function ($scope, $stateParams) {
 function ($scope, $stateParams) {
 
     $scope.saveToLocalStorage = function(obj){
-      var person = {
-         'callback' : 'JSON_CALLBACK',
-         'name' : obj.name,
-         'surname' : obj.surname,
-         'age' : obj.age,
-         'weight' : obj.weight,
-         'city' : obj.city,
-         'street': obj.street,
-         'flat': obj.flat,
-         'zipCode': obj.zipCode,
-         'phone' : obj.phone
-     };
-     // JSON.stringify(person);
-     localStorage.setItem('Person',JSON.stringify(person));
+      if(obj.name == undefined && obj.surname == undefined){
+
+      }else {
+        
+        var person = {
+           'callback' : 'JSON_CALLBACK',
+           'name' : obj.name,
+           'surname' : obj.surname,
+           'age' : obj.age,
+           'weight' : obj.weight,
+           'city' : obj.city,
+           'street': obj.street,
+           'flat': obj.flat,
+           'zipCode': obj.zipCode,
+           'phone' : obj.phone
+       };
+       localStorage.setItem('Person',JSON.stringify(person));
+      }
+
     }
 
 }])
