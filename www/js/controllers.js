@@ -20,8 +20,33 @@ function ($scope, $stateParams) {
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $stateParams) {
-    var personJsonIn  = localStorage.getItem('Person');
-    var personJsonOut = (personJsonIn !== null) ? JSON.parse(personJsonIn) : console.log('Error loading JSON');
+    /*
+    *@description
+    *Static variable to use on View
+    */
+    var firstName = "FirstName",
+        lastName = "LastName",
+        type = 'type',
+        person= 'Person',
+        selectBloodType = "Select Blood Type";
+
+    var personJsonIn  = localStorage.getItem(person);
+
+    if(personJsonIn !== null){
+      var personJsonOut = JSON.parse(personJsonIn);
+
+      $scope.firstName = personJsonOut.name;
+      $scope.lastName  = personJsonOut.surname;
+
+      if(personJsonOut.hasOwnProperty(type)){
+         $scope.selectBloodType = personJsonOut.type;
+      }else{
+         $scope.selectBloodType = selectBloodType;
+      }
+    }else{
+      $scope.firstName = firstName;
+      $scope.lastName  = lastName;
+    }
 
     $scope.itemList   = [];
     $scope.bloodsType = [{type:"A Rh+"},{type:"A Rh-"},{type:"B Rh+"},{type:"B Rh-"},
@@ -33,8 +58,7 @@ function ($scope, $stateParams) {
       }else{
         var userBlood = bloodTypeSelected.type;
         personJsonOut.type = userBlood;
-        console.log(personJsonOut);
-        localStorage.setItem('Person',JSON.stringify(personJsonOut));
+        localStorage.setItem(person,JSON.stringify(personJsonOut));
       }
     }
 
@@ -92,11 +116,31 @@ function ($scope, $stateParams) {
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $stateParams) {
 
+
+    var personJsonIn  = localStorage.getItem('Person');
+
+    if(personJsonIn !== null){
+      var personJsonOut = JSON.parse(personJsonIn);
+        $scope.nameValue = personJsonOut.name;
+        $scope.surnameValue = personJsonOut.surname;
+        $scope.ageValue = personJsonOut.age;
+        $scope.weightValue = personJsonOut.weight;
+        $scope.cityValue = personJsonOut.city;
+        $scope.streetValue = personJsonOut.street;
+        $scope.flatValue = personJsonOut.flat;
+        $scope.zipCodeValue = personJsonOut.zipCode;
+        $scope.phoneValue = personJsonOut.phone;
+    }else{
+
+    }
+
     $scope.saveToLocalStorage = function(obj){
-      if(obj.name == undefined && obj.surname == undefined){
+      console.log(obj);
+      if(obj == null && obj == undefined){
 
       }else {
-
+        console.log('AAAAAAAAA');
+        console.log(obj.phone);
         var person = {
            'callback' : 'JSON_CALLBACK',
            'name' : obj.name,
@@ -106,8 +150,9 @@ function ($scope, $stateParams) {
            'city' : obj.city,
            'street': obj.street,
            'flat': obj.flat,
+           'phone' : obj.phone,
            'zipCode': obj.zipCode,
-           'phone' : obj.phone
+
        };
        localStorage.setItem('Person',JSON.stringify(person));
       }
@@ -117,6 +162,14 @@ function ($scope, $stateParams) {
 }])
 
 .controller('mapsCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+// You can include any angular dependencies as parameters for this function
+// TIP: Access Route Parameters for your page via $stateParams.parameterName
+function ($scope, $stateParams) {
+
+
+}])
+
+.controller('staticVariableController', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $stateParams) {

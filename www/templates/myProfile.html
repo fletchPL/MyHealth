@@ -5,20 +5,22 @@
   <ion-content padding="true" class="manual-ios-statusbar-padding">
     <div class="spacer" style="width: 300px; height: 0px;"></div>
     <h1 id="myProfile-heading2" style="color:#000000;">My Profile</h1>
+    <div ng-controller="myProfileCtrl">
     <ion-list id="myProfile-list6">
       <ion-item class="item-avatar" id="myProfile-list-item15" ui-sref="detailInformation()">
         <img src="img/ni6TI3D9RwqddZaZhkfT_photo.jpg">
-        <h2>First Name</h2>
-        <p>Last Name</p>
+        <h2>{{firstName}}</h2>
+        <p>{{lastName}}</p>
       </ion-item>
     </ion-list>
+  </div>
     <div ng-controller="myProfileCtrl">
     <form id="myProfile-form5" class="list">
       <label class="item item-select" id="myProfile-select1">
         <span class="input-label">Blood</span>
         <select ng-model="bloodTypeSelected" ng-change="chooseBlood(bloodTypeSelected)"
         data-ng-options="bloodType as bloodType.type for bloodType in bloodsType">
-          <option value="">Select Blood Type</option>
+          <option value="">{{selectBloodType}}</option>
         </select>
       </label>
     </form>
