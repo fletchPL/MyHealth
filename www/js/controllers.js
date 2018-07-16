@@ -121,7 +121,6 @@ function ($scope, $stateParams) {
     $scope.usersTypes = [{userType:"Disable"},{userType:"Volunteer"}];
 
     $scope.chooseUserType = function(userType){
-      console.log('AAAAAAA',userType);
       if(userType == null){
       //error
 
