@@ -116,6 +116,21 @@ function ($scope, $stateParams) {
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $stateParams) {
 
+    $scope.itemList   = [];
+    $scope.selectUserType = "Select User Type";
+    $scope.usersTypes = [{userType:"Disable"},{userType:"Volunteer"}];
+
+    $scope.chooseUserType = function(userType){
+      console.log('AAAAAAA',userType);
+      if(userType == null){
+      //error
+
+    }else{
+      var userTypes = userType.userType;
+      personJsonOut.userType = userTypes;
+      localStorage.setItem('Person',JSON.stringify(personJsonOut));
+    }
+    };
 
     var personJsonIn  = localStorage.getItem('Person');
 
@@ -130,6 +145,13 @@ function ($scope, $stateParams) {
         $scope.flatValue = personJsonOut.flat;
         $scope.zipCodeValue = personJsonOut.zipCode;
         $scope.phoneValue = personJsonOut.phone;
+
+        if(personJsonOut.hasOwnProperty('userType')){
+         $scope.selectUserType = personJsonOut.userType;
+        }else{
+         $scope.selectUserType = "Select User Type";
+       }
+
     }else{
 
     }

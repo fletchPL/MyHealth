@@ -46,9 +46,9 @@
       </label>
       <label class="item item-select" id="detailInformation-select2">
         <span class="input-label">Who are you</span>
-        <select>
-          <option>Volontariat</option>
-          <option>Disabled</option>
+        <select ng-model="userType" ng-change="chooseUserType(userType)"
+                data-ng-options="userChoose as userChoose.userType for userChoose in usersTypes">
+          <option value="">{{selectUserType}}</option>
         </select>
       </label>
     </ion-list>
