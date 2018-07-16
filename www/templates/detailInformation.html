@@ -10,45 +10,45 @@
       </ion-item>
       <label class="item item-input" id="detailInformation-input14">
         <span class="input-label">Name</span>
-        <input name="name" ng-model="person.name" type="text" placeholder="Name">
+        <input name="name" ng-value="nameValue" ng-model="person.name" type="text" placeholder="Name">
       </label>
       <label class="item item-input" id="detailInformation-input15">
         <span class="input-label">Surname</span>
-        <input name="surname" ng-model="person.surname" type="text" placeholder="Surname">
+        <input name="surname" ng-value="surnameValue" ng-model="person.surname" type="text" placeholder="Surname">
       </label>
       <label class="item item-input" id="detailInformation-input16">
         <span class="input-label">Age</span>
-        <input name="age" ng-model="person.age" type="text" placeholder="Age"  ng-minlength="2" ng-maxlength="3">
+        <input name="age" ng-value="ageValue" ng-model="person.age" type="number" placeholder="Age">
       </label>
       <label class="item item-input" id="detailInformation-input17">
         <span class="input-label">Weight</span>
-        <input name="weight" ng-model="person.number" type="number" placeholder="Weight">
+        <input name="weight" ng-value="weightValue" ng-model="person.weight" type="number" placeholder="Weight">
       </label>
       <label class="item item-input" id="detailInformation-input18">
         <span class="input-label">City</span>
-        <input name="city" ng-model="person.city" type="text" placeholder="City">
+        <input name="city" ng-value="cityValue" ng-model="person.city" type="text" placeholder="City">
       </label>
       <label class="item item-input" id="detailInformation-input19">
         <span class="input-label">Street</span>
-        <input name="street" ng-model="person.street" type="text" placeholder="Street">
+        <input name="street" ng-value="streetValue" ng-model="person.street" type="text" placeholder="Street">
       </label>
       <label class="item item-input" id="detailInformation-input20">
         <span class="input-label">Flat</span>
-        <input name="flat" ng-model="person.flat" type="text" placeholder="Flat number">
+        <input name="flat" ng-value="flatValue" ng-model="person.flat" type="text" placeholder="Flat number">
       </label>
       <label class="item item-input" id="detailInformation-input21">
         <span class="input-label">Zip Code</span>
-        <input name="zipCode" ng-model="person.zipCode" type="text" placeholder="Zip Code">
+        <input name="zipCode" ng-value="zipCodeValue" ng-model="person.zipCode" type="text" placeholder="Zip Code">
       </label>
       <label class="item item-input" id="detailInformation-input22">
         <span class="input-label">Phone</span>
-        <input name="phone" ng-model="person.phone" type="tel" placeholder="Phone" ng-pattern="/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/">
+        <input name="phone" ng-value="phoneValue" ng-model="person.phone" type="number" placeholder="Phone">
       </label>
       <label class="item item-select" id="detailInformation-select2">
         <span class="input-label">Who are you</span>
-        <select>
-          <option>Volontariat</option>
-          <option>Disabled</option>
+        <select ng-model="userType" ng-change="chooseUserType(userType)"
+                data-ng-options="userChoose as userChoose.userType for userChoose in usersTypes">
+          <option value="">{{selectUserType}}</option>
         </select>
       </label>
     </ion-list>
